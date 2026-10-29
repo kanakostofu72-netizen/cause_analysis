@@ -1,0 +1,18 @@
+{
+  "name": "cause-analysis-auth",
+  "version": "1.0.0",
+  "description": "Google authentication and Firebase data integration for cause analysis system",
+  "main": "server.js",
+  "scripts": {
+    "start": "node server.js",
+    "dev": "node server.js"
+  },
+  "keywords": [
+    "firebase",
+    "google-auth",
+    "cause-analysis",
+    "learning-analytics"
+  ],
+  "author": "",
+  "license": "ISC"
+}

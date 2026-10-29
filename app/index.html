@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>ログイン | Cause Analysis</title>
+  <meta name="description" content="学年・組・番号で生徒情報を特定し、学習原因分析ダッシュボードへログインします。">
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="css/auth.css">
+</head>
+<body>
+
+  <!-- App Header -->
+  <header class="app-header">
+    <a href="index.html" class="brand-wrapper">
+      <div class="brand-icon">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+          <path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z"></path>
+          <polyline points="3.27 6.96 12 12.01 20.73 6.96"></polyline>
+          <line x1="12" y1="22.08" x2="12" y2="12"></line>
+        </svg>
+      </div>
+      <div>
+        <span class="brand-title">Cause Analysis</span>
+      </div>
+    </a>
+  </header>
+
+  <!-- Main Login Screen -->
+  <main class="auth-container">
+    <div class="glass-card auth-card">
+      
+      <div class="auth-header">
+        <div class="auth-logo-circle">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"></path>
+            <path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"></path>
+          </svg>
+        </div>
+        <h1 class="auth-title">生徒ログイン</h1>
+      </div>
+
+      <!-- =========================================================================
+           【方法B: 学年・組・出席番号による認証フォーム】（現在稼働中）
+           serviceAccountKey.json 経由で Firestore (rss-m1) の登録情報と照合します
+           ========================================================================= -->
+      <form id="studentLoginForm" class="student-login-form">
+        <div class="input-row">
+          <div class="input-field">
+            <label for="gradeInput">学年</label>
+            <input type="number" id="gradeInput" name="grade" min="1" max="6" placeholder="1" required>
+            <span class="unit-label">年</span>
+          </div>
+
+          <div class="input-field">
+            <label for="classInput">組</label>
+            <input type="text" id="classInput" name="className" placeholder="1" required>
+            <span class="unit-label">組</span>
+          </div>
+
+          <div class="input-field">
+            <label for="numberInput">出席番号</label>
+            <input type="number" id="numberInput" name="studentNumber" min="1" max="99" placeholder="1" required>
+            <span class="unit-label">番</span>
+          </div>
+        </div>
+
+        <button id="loginSubmitBtn" type="submit" class="btn-submit">
+          <span id="btnText">ログイン</span>
+          <div id="btnSpinner" class="spinner" style="display: none;"></div>
+        </button>
+      </form>
+
+      <!-- =========================================================================
+           【方法A: Google OAuth認証への切り替え用コード】
+           将来、FirebaseのWeb APIキーを取得してGoogleログインに戻す場合は、
+           上の <form id="studentLoginForm"> をコメントアウトし、
+           以下の <button id="googleLoginBtn"> のコメントを解除してください。
+           詳しくは FUTURE.md をご参照ください。
+           ========================================================================= -->
+      <!--
+      <button id="googleLoginBtn" class="btn-google" type="button" aria-label="Googleアカウントでログイン">
+        <svg class="google-icon" viewBox="0 0 24 24">
+          <path fill="#4285F4" d="M23.745 12.27c0-.7-.06-1.4-.19-2.07H12v4.51h6.6c-.29 1.52-1.14 2.82-2.4 3.68v3.05h3.88c2.27-2.09 3.665-5.17 3.665-9.17z"/>
+          <path fill="#34A853" d="M12 24c3.24 0 5.95-1.08 7.93-2.91l-3.88-3.05c-1.08.72-2.45 1.16-4.05 1.16-3.12 0-5.77-2.1-6.72-4.93H1.25v3.15C3.26 21.36 7.33 24 12 24z"/>
+          <path fill="#FBBC05" d="M5.28 14.27c-.25-.72-.38-1.49-.38-2.27s.13-1.55.38-2.27V6.58H1.25C.45 8.18 0 10.04 0 12s.45 3.82 1.25 5.42l4.03-3.15z"/>
+          <path fill="#EA4335" d="M12 4.75c1.77 0 3.35.61 4.6 1.8l3.42-3.42C17.95 1.19 15.24 0 12 0 7.33 0 3.26 2.64 1.25 6.58l4.03 3.15c.95-2.83 3.6-4.98 6.72-4.98z"/>
+        </svg>
+        <span>Google アカウントでログイン</span>
+      </button>
+      -->
+
+    </div>
+  </main>
+
+  <!-- Toast Container -->
+  <div id="toastContainer" class="toast-container"></div>
+
+  <!-- Footer -->
+  <footer class="app-footer">
+    <p>&copy; 2026 Cause Analysis</p>
+  </footer>
+
+  <script type="module" src="js/app.js"></script>
+</body>
+</html>

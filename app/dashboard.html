@@ -1,0 +1,347 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>ダッシュボード | Cause Analysis</title>
+  <meta name="description" content="学習原因分析ダッシュボードです。対話履歴や学習問題データを閲覧・分析します。">
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="css/dashboard.css">
+  <!-- KaTeX (数式レンダリング) -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.8/dist/katex.min.css">
+  <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.8/dist/katex.min.js"></script>
+  <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.8/dist/contrib/auto-render.min.js"></script>
+</head>
+<body>
+
+  <!-- App Header -->
+  <header class="app-header">
+    <a href="dashboard.html" class="brand-wrapper">
+      <div class="brand-icon">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+          <path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z"></path>
+          <polyline points="3.27 6.96 12 12.01 20.73 6.96"></polyline>
+          <line x1="12" y1="22.08" x2="12" y2="12"></line>
+        </svg>
+      </div>
+      <div>
+        <span class="brand-title">Cause Analysis</span>
+      </div>
+    </a>
+
+    <div class="header-status">
+      <!-- ログアウトボタンのみ配置（Firebase接続ステータスバーは削除） -->
+      <button id="logoutBtn" class="btn btn-secondary" style="padding: 0.45rem 1rem; font-size: 0.85rem;">
+        ログアウト
+      </button>
+    </div>
+  </header>
+
+  <!-- Main Container -->
+  <main class="container">
+    <div class="dashboard-layout">
+      
+      <!-- Left Sidebar: Profile Card -->
+      <aside class="glass-card profile-card">
+        <div class="profile-avatar-wrap">
+          <img id="userAvatar" src="" alt="User Avatar" class="profile-avatar">
+          <div class="profile-badge">✓</div>
+        </div>
+
+        <h2 id="userName" class="profile-name">読み込み中...</h2>
+        <div id="userEmail" class="profile-email">---</div>
+
+        <!-- ログインユーザー詳細（認証プロバイダ、Firebase UID、学籍/役職は削除し、所属情報のみを表示） -->
+        <div class="profile-meta-list">
+          <div class="profile-meta-item">
+            <span class="profile-meta-label">所属</span>
+            <span id="userOrg" class="profile-meta-value">---</span>
+          </div>
+        </div>
+
+        <div class="profile-actions">
+          <a href="index.html" class="btn btn-secondary" style="font-size: 0.85rem; width: 100%;">
+            別のアカウントでログイン
+          </a>
+        </div>
+      </aside>
+
+      <!-- Right Main Content: Tabs and Data Views -->
+      <section class="dashboard-main">
+        
+        <!-- Navigation Tabs -->
+        <div class="tabs-nav">
+          <!-- 追加問題作成ボタン（対話データの左側に配置） -->
+          <button id="createProblemBtn" class="btn-create-problem" type="button">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+              <line x1="12" y1="5" x2="12" y2="19"></line>
+              <line x1="5" y1="12" x2="19" y2="12"></line>
+            </svg>
+            追加問題作成
+          </button>
+          <button class="tab-btn active" data-tab="tab-dialogues">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"></path></svg>
+            対話データ (<span id="dialogueCount">0</span>)
+          </button>
+        </div>
+
+        <!-- Tab 1: Dialogues -->
+        <div id="tab-dialogues" class="tab-content">
+          <div class="section-header">
+            <div>
+              <h3 class="section-title">対話ログ一覧</h3>
+            </div>
+          </div>
+
+          <div id="dialoguesList">
+            <!-- Populated by JS -->
+          </div>
+        </div>
+
+      </section>
+
+    </div>
+  </main>
+
+  <!-- Dialogue Chat Detail Modal -->
+  <div id="chatModal" class="modal-overlay" style="display: none;">
+    <div class="glass-card chat-modal-content">
+      <div style="display: flex; justify-content: space-between; align-items: center; border-bottom: 1px solid var(--border-subtle); padding-bottom: 0.8rem;">
+        <div>
+          <h4 id="modalTopic" style="font-size: 1.1rem; color: var(--text-main);">対話スレッド詳細</h4>
+          <span id="modalTimestamp" style="font-size: 0.78rem; color: var(--text-dim);">日時</span>
+        </div>
+        <button id="closeModalBtn" class="btn btn-secondary" style="padding: 0.3rem 0.7rem; font-size: 0.8rem;">✕ 閉じる</button>
+      </div>
+      <div id="chatThread" class="chat-thread">
+        <!-- Message bubbles inserted here -->
+      </div>
+    </div>
+  </div>
+
+  <!-- Cause Analysis Modal (追加問題作成: つまづき箇所 & 誤答原因特定) -->
+  <div id="causeAnalysisModal" class="modal-overlay" style="display: none;">
+    <div class="glass-card ca-modal-content">
+      
+      <!-- Modal Header -->
+      <div class="ca-modal-header">
+        <div class="ca-header-title-wrap">
+          <div class="ca-header-icon">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M12 20h9"></path>
+              <path d="M16.5 3.5a2.121 2.121 0 0 1 3 3L7 19l-4 1 1-4L16.5 3.5z"></path>
+            </svg>
+          </div>
+          <div>
+            <h3 class="ca-modal-title">追加問題作成</h3>
+            <p class="ca-modal-subtitle">解答のつまづき箇所と4分類の誤答原因確率を特定します</p>
+          </div>
+        </div>
+        <button id="closeCaModalBtn" class="btn-close-modal" type="button" aria-label="閉じる">✕</button>
+      </div>
+
+      <!-- Step Progress Bar -->
+      <div class="ca-stepper">
+        <div id="caStepIndicator1" class="ca-step-item active">
+          <span class="ca-step-number">1</span>
+          <span class="ca-step-label">問題を選択</span>
+        </div>
+        <div class="ca-step-divider"></div>
+        <div id="caStepIndicator2" class="ca-step-item">
+          <span class="ca-step-number">2</span>
+          <span class="ca-step-label">つまづき箇所と誤答原因の確率分布</span>
+        </div>
+      </div>
+
+      <!-- Modal Body -->
+      <div class="ca-modal-body">
+        
+        <!-- STEP 1: 問題選択ビュー -->
+        <div id="caStepSelect" class="ca-step-view active">
+          <div class="ca-selection-intro">
+            分析対象とする問題を選択してください。
+          </div>
+
+          <div class="ca-select-layout">
+            <!-- Problem Cards List -->
+            <div class="ca-problem-list-wrap">
+              <div id="caProblemCards" class="ca-problem-cards">
+                <!-- Populated by JS -->
+              </div>
+            </div>
+
+            <!-- Selected Preview Panel -->
+            <div class="ca-preview-panel">
+              <div class="ca-preview-header">
+                <span class="ca-preview-title">選択中の問題</span>
+              </div>
+              <div id="caPreviewContent" class="ca-preview-content">
+                <div class="ca-empty-preview">
+                  左の一覧から分析したい問題を選択してください
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Step 1 Footer -->
+          <div class="ca-modal-footer">
+            <button id="cancelCaBtn" class="btn btn-secondary" type="button">キャンセル</button>
+            <button id="startAnalysisBtn" class="btn btn-primary ca-btn-start" type="button" disabled>
+              この問題の原因分析を実行
+            </button>
+          </div>
+        </div>
+
+        <!-- LOADING VIEW -->
+        <div id="caStepLoading" class="ca-step-view" style="display: none;">
+          <div class="ca-loader-wrap">
+            <div class="ca-spinner"></div>
+            <h4 class="ca-loader-title">対話データから誤答原因を分析中</h4>
+            <div class="ca-loader-steps">
+              <div class="ca-loader-step-item">対話ログ・解答データの読込完了</div>
+              <div class="ca-loader-step-item active">解答のつまづき箇所を同定中</div>
+              <div class="ca-loader-step-item">4分類の誤答原因確率を算出中</div>
+            </div>
+          </div>
+        </div>
+
+        <!-- STEP 2: 分析結果ビュー -->
+        <div id="caStepResult" class="ca-step-view" style="display: none;">
+          
+          <!-- Analyzed Target Header Bar -->
+          <div class="ca-result-meta-bar">
+            <div>
+              <span id="caResultUnit" class="ca-tag-unit">数Ⅰ 図形と計量</span>
+              <h4 id="caResultTitle" class="ca-result-title">問題タイトル</h4>
+            </div>
+            <div class="ca-result-images-links">
+              <button id="caViewProblemImgBtn" class="btn btn-secondary ca-btn-sm" type="button">問題画像</button>
+              <button id="caViewAnswerImgBtn" class="btn btn-secondary ca-btn-sm" type="button">解答画像</button>
+            </div>
+          </div>
+
+          <!-- Section 1: つまづき箇所 (*1) -->
+          <div class="ca-section-card ca-stumble-card">
+            <div class="ca-section-header">
+              <h4 class="ca-section-title">つまづき箇所</h4>
+            </div>
+            
+            <div class="ca-stumble-location-box">
+              <div class="ca-location-label">発生位置</div>
+              <div id="caStumbleLocation" class="ca-location-text">---</div>
+            </div>
+
+            <div class="ca-stumble-detail-box">
+              <div id="caStumbleSummary" class="ca-stumble-summary">---</div>
+              <div id="caStumbleDetail" class="ca-stumble-detail">---</div>
+            </div>
+          </div>
+
+          <!-- Section 2: 4つの誤答原因の確率分布 (*2) & サブメニュー(対話根拠) -->
+          <div class="ca-section-card ca-distribution-card">
+            <div class="ca-section-header">
+              <h4 class="ca-section-title">誤答原因の確率分布</h4>
+              <span class="ca-section-sum-badge">総和 1.0 (100%)</span>
+            </div>
+
+            <!-- Stacked Overall Progress Bar (100%) -->
+            <div class="ca-stacked-bar-wrap">
+              <div class="ca-stacked-bar">
+                <div id="caBarNumber" class="ca-bar-seg seg-number" style="width: 25%;" title="数概念"></div>
+                <div id="caBarCalc" class="ca-bar-seg seg-calc" style="width: 25%;" title="計算の正確さ、または流暢性"></div>
+                <div id="caBarFacts" class="ca-bar-seg seg-facts" style="width: 25%;" title="数学的事実の既往"></div>
+                <div id="caBarReasoning" class="ca-bar-seg seg-reasoning" style="width: 25%;" title="数学的推論の正確さ"></div>
+              </div>
+              <div class="ca-stacked-legend">
+                <span class="legend-item"><i class="dot dot-number"></i> ① 数概念 (<span id="caLegendPctNumber">0%</span>)</span>
+                <span class="legend-item"><i class="dot dot-calc"></i> ② 計算の正確さ・流暢性 (<span id="caLegendPctCalc">0%</span>)</span>
+                <span class="legend-item"><i class="dot dot-facts"></i> ③ 数学的事実の既往 (<span id="caLegendPctFacts">0%</span>)</span>
+                <span class="legend-item"><i class="dot dot-reasoning"></i> ④ 数学的推論の正確さ (<span id="caLegendPctReasoning">0%</span>)</span>
+              </div>
+            </div>
+
+            <!-- 4 Categories Cards Grid -->
+            <div class="ca-categories-grid">
+              
+              <!-- 1. 数概念 -->
+              <div id="caCardNumber" class="ca-cat-card">
+                <div class="ca-cat-top">
+                  <span class="ca-cat-label">① 数概念</span>
+                  <span id="caPctNumber" class="ca-cat-pct">0%</span>
+                </div>
+                <div class="ca-cat-meter"><div id="caMeterNumber" class="ca-meter-fill seg-number" style="width: 0%;"></div></div>
+                <div class="ca-cat-def">数や数量の意味理解に関する困難</div>
+              </div>
+
+              <!-- 2. 計算の正確さ、または流暢性 -->
+              <div id="caCardCalc" class="ca-cat-card">
+                <div class="ca-cat-top">
+                  <span class="ca-cat-label">② 計算の正確さ、または流暢性</span>
+                  <span id="caPctCalc" class="ca-cat-pct">0%</span>
+                </div>
+                <div class="ca-cat-meter"><div id="caMeterCalc" class="ca-meter-fill seg-calc" style="width: 0%;"></div></div>
+                <div class="ca-cat-def">計算を正確かつ流暢に遂行することの困難</div>
+              </div>
+
+              <!-- 3. 数学的事実の既往 -->
+              <div id="caCardFacts" class="ca-cat-card">
+                <div class="ca-cat-top">
+                  <span class="ca-cat-label">③ 数学的事実の既往</span>
+                  <span id="caPctFacts" class="ca-cat-pct">0%</span>
+                </div>
+                <div class="ca-cat-meter"><div id="caMeterFacts" class="ca-meter-fill seg-facts" style="width: 0%;"></div></div>
+                <div class="ca-cat-def">基本的な計算事実や既習事項を保持・想起することの困難</div>
+              </div>
+
+              <!-- 4. 数学的推論の正確さ -->
+              <div id="caCardReasoning" class="ca-cat-card">
+                <div class="ca-cat-top">
+                  <span class="ca-cat-label">④ 数学的推論の正確さ</span>
+                  <span id="caPctReasoning" class="ca-cat-pct">0%</span>
+                </div>
+                <div class="ca-cat-meter"><div id="caMeterReasoning" class="ca-meter-fill seg-reasoning" style="width: 0%;"></div></div>
+                <div class="ca-cat-def">条件をもとに筋道立てて考えることの困難</div>
+              </div>
+
+            </div>
+
+            <!-- サブメニュー: 対話データからの根拠の抽出 (ボタン押下で開閉) -->
+            <div class="ca-evidence-submenu-wrap">
+              <button id="caEvidenceToggleBtn" class="ca-submenu-toggle-btn" type="button">
+                <span class="ca-toggle-text">対話データからの根拠を表示</span>
+                <span id="caEvidenceArrow" class="ca-toggle-arrow">▼</span>
+              </button>
+
+              <div id="caEvidencePanel" class="ca-evidence-panel" style="display: none;">
+                <div class="ca-submenu-title">対話データにおける生徒の発言と考察</div>
+                <div id="caEvidenceList" class="ca-evidence-list">
+                  <!-- Populated by JS -->
+                </div>
+                <div id="caOverallAnalysis" class="ca-overall-box">
+                  <!-- Overall analysis text -->
+                </div>
+              </div>
+            </div>
+
+          </div>
+
+          <!-- Step 2 Footer -->
+          <div class="ca-modal-footer">
+            <button id="caBackToSelectBtn" class="btn btn-secondary" type="button">別の問題を選択</button>
+            <button id="caProceedNextBtn" class="btn btn-primary" type="button">
+              この原因分析をもとに追加問題を作成
+            </button>
+          </div>
+
+        </div>
+
+      </div>
+
+    </div>
+  </div>
+
+  <div id="toastContainer" class="toast-container"></div>
+
+  <script type="module" src="js/dashboard.js"></script>
+</body>
+</html>
