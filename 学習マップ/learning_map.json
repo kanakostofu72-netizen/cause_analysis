@@ -1,0 +1,391 @@
+{
+  "nodes": [
+    {
+      "learning_item_id": 1,
+      "question_number": 1,
+      "assessment_axis": "知識・技能",
+      "learning_item_name": "直角三角形において，正弦，余弦，正接が求められる。",
+      "example_question": "下の図において、$\\sin\\theta$、$\\cos\\theta$、$\\tan\\theta$の値を、それぞれ求めよ。"
+    },
+    {
+      "learning_item_id": 2,
+      "question_number": 2,
+      "assessment_axis": "知識・技能",
+      "learning_item_name": "直角三角形において，正弦，余弦，正接が求められる。",
+      "example_question": "次の値を求めよ。\n\\begin{enumerate}\n  \\item $\\cos30^\\circ,\\ \\tan30^\\circ$\n  \\item $\\sin45^\\circ,\\ \\tan45^\\circ$\n  \\item $\\sin60^\\circ,\\ \\cos60^\\circ$\n\\end{enumerate}"
+    },
+    {
+      "learning_item_id": 3,
+      "question_number": 3,
+      "assessment_axis": "思考力・判断力・表現力",
+      "learning_item_name": "三角比の表のsinθ，cosθ，tanθの値の意味を考察することができる。",
+      "example_question": "次の値を、三角比の表を用いて求めよ。\n\\begin{enumerate}\n  \\item $\\sin22^\\circ$\n  \\item $\\cos68^\\circ$\n  \\item $\\tan86^\\circ$\n\\end{enumerate}"
+    },
+    {
+      "learning_item_id": 4,
+      "question_number": 4,
+      "assessment_axis": "思考力・判断力・表現力",
+      "learning_item_name": "三角比の表のsinθ，cosθ，tanθの値の意味を考察することができる。",
+      "example_question": "次のような鋭角$\\theta$のおよその大きさを、三角比の表を用いて求めよ。\n\\begin{enumerate}\n  \\item $\\sin\\theta=0.26$\n  \\item $\\cos\\theta=0.53$\n  \\item $\\tan\\theta=4.3$\n\\end{enumerate}"
+    },
+    {
+      "learning_item_id": 5,
+      "question_number": 5,
+      "assessment_axis": "知識・技能",
+      "learning_item_name": "直角三角形の辺の長さを三角比で表す式を理解し，測量などの応用問題に利用できる。",
+      "example_question": "傾斜角$20^\\circ$の坂をまっすぐに$500\\,\\mathrm{m}$登るとき、\n鉛直方向に何$\\mathrm{m}$上がることになるか。\nまた、水平方向に何$\\mathrm{m}$進むことになるか。\n$1\\,\\mathrm{m}$未満は四捨五入して求めよ。"
+    },
+    {
+      "learning_item_id": 6,
+      "question_number": 5,
+      "assessment_axis": "思考力・判断力・表現力",
+      "learning_item_name": "具体的な事象を三角比の問題として捉えることができる。",
+      "example_question": "傾斜角$20^\\circ$の坂をまっすぐに$500\\,\\mathrm{m}$登るとき、\n鉛直方向に何$\\mathrm{m}$上がることになるか。\nまた、水平方向に何$\\mathrm{m}$進むことになるか。\n$1\\,\\mathrm{m}$未満は四捨五入して求めよ。"
+    },
+    {
+      "learning_item_id": 7,
+      "question_number": 6,
+      "assessment_axis": "知識・技能",
+      "learning_item_name": "直角三角形の辺の長さを三角比で表す式を理解し，測量などの応用問題に利用できる。",
+      "example_question": "目の高さが$1.6\\,\\mathrm{m}$の地点から塔の先端を見上げたところ、\n仰角は$40^\\circ$であった。\n塔の高さを求めよ。ただし、小数第2位を四捨五入せよ。"
+    },
+    {
+      "learning_item_id": 8,
+      "question_number": 6,
+      "assessment_axis": "思考力・判断力・表現力",
+      "learning_item_name": "具体的な事象を三角比の問題として捉えることができる。",
+      "example_question": "目の高さが$1.6\\,\\mathrm{m}$の地点から塔の先端を見上げたところ、\n仰角は$40^\\circ$であった。\n塔の高さを求めよ。ただし、小数第2位を四捨五入せよ。"
+    },
+    {
+      "learning_item_id": 9,
+      "question_number": 7,
+      "assessment_axis": "知識・技能",
+      "learning_item_name": "直角三角形の辺の長さを三角比で表す式を理解し，測量などの応用問題に利用できる。",
+      "example_question": "右の道路標識は道路の勾配を表したもので、\n水平距離に対する高さの割合が$10\\%$、\nすなわち水平距離$100\\,\\mathrm{m}$に対して\n$10\\,\\mathrm{m}$の割合で高くなることを示している。\nこの道路の傾斜角を求めよ。"
+    },
+    {
+      "learning_item_id": 10,
+      "question_number": 7,
+      "assessment_axis": "思考力・判断力・表現力",
+      "learning_item_name": "具体的な事象を三角比の問題として捉えることができる。",
+      "example_question": "右の道路標識は道路の勾配を表したもので、\n水平距離に対する高さの割合が$10\\%$、\nすなわち水平距離$100\\,\\mathrm{m}$に対して\n$10\\,\\mathrm{m}$の割合で高くなることを示している。\nこの道路の傾斜角を求めよ。"
+    },
+    {
+      "learning_item_id": 11,
+      "question_number": 8,
+      "assessment_axis": "知識・技能",
+      "learning_item_name": "三角比の相互関係を利用して，1つの値から残りの値が求められる。",
+      "example_question": "$\\theta$は鋭角とする。\n$\\cos\\theta=\\dfrac{2}{3}$のとき、\n$\\sin\\theta$と$\\tan\\theta$の値を求めよ。"
+    },
+    {
+      "learning_item_id": 12,
+      "question_number": 9,
+      "assessment_axis": "知識・技能",
+      "learning_item_name": "三角比の相互関係を利用して，1つの値から残りの値が求められる。",
+      "example_question": "$\\theta$は鋭角とする。\n$\\tan\\theta=\\dfrac{1}{2}$のとき、\n$\\sin\\theta$と$\\cos\\theta$の値を求めよ。"
+    },
+    {
+      "learning_item_id": 13,
+      "question_number": 10,
+      "assessment_axis": "知識・技能",
+      "learning_item_name": "sin(90°－θ)＝cosθなどの公式が利用できる。",
+      "example_question": "次の三角比を求めよ。\n\\begin{enumerate}\n  \\item $\\sin120^\\circ$\n  \\item $\\cos135^\\circ$\n  \\item $\\tan150^\\circ$\n\\end{enumerate}"
+    },
+    {
+      "learning_item_id": 14,
+      "question_number": 11,
+      "assessment_axis": "知識・技能",
+      "learning_item_name": "sin(90°－θ)＝cosθなどの公式が利用できる。",
+      "example_question": "図を用いて、次の等式が成り立つことを確かめよ。\n\\begin{enumerate}\n  \\item $\\cos\\left(90^\\circ-\\theta\\right)=\\sin\\theta$\n  \\item $\\tan\\left(90^\\circ-\\theta\\right)=\\dfrac{1}{\\tan\\theta}$\n\\end{enumerate}"
+    },
+    {
+      "learning_item_id": 15,
+      "question_number": 12,
+      "assessment_axis": "知識・技能",
+      "learning_item_name": "座標を用いた三角比の定義を理解し，鈍角の三角比を求めることができる。",
+      "example_question": "下の図において、次の三角比を求めよ。\n\\begin{enumerate}\n  \\item $\\sin\\theta$\n  \\item $\\cos\\theta$\n  \\item $\\tan\\theta$\n\\end{enumerate}"
+    },
+    {
+      "learning_item_id": 16,
+      "question_number": 13,
+      "assessment_axis": "知識・技能",
+      "learning_item_name": "sin(180°－θ)＝sinθなどの公式が利用できる。",
+      "example_question": "次の値を求めよ。\n\\begin{enumerate}\n  \\item $\\sin120^\\circ$\n  \\item $\\cos135^\\circ$\n  \\item $\\tan120^\\circ$\n\\end{enumerate}"
+    },
+    {
+      "learning_item_id": 17,
+      "question_number": 14,
+      "assessment_axis": "知識・技能",
+      "learning_item_name": "0°≦θ≦180°において，三角比の値からθを求めることができる。また，1つの三角比の値から残りの値を求めることができる。",
+      "example_question": "$\\theta$は鈍角とする。\n次の等式を満たす$\\theta$を求めよ。\n\\begin{enumerate}\n  \\item $\\sin\\theta=\\dfrac{1}{2}$\n  \\item $\\cos\\theta=-\\dfrac{\\sqrt{3}}{2}$\n  \\item $\\cos\\theta=-\\dfrac{1}{2}$\n  \\item $\\sin\\theta=\\dfrac{\\sqrt{3}}{2}$\n\\end{enumerate}"
+    },
+    {
+      "learning_item_id": 18,
+      "question_number": 15,
+      "assessment_axis": "知識・技能",
+      "learning_item_name": "0°≦θ≦180°において，三角比の値からθを求めることができる。また，1つの三角比の値から残りの値を求めることができる。",
+      "example_question": "$\\theta$は鈍角とする。\n$\\tan\\theta=-\\dfrac{1}{2}$のとき、\n$\\sin\\theta$と$\\cos\\theta$の値を求めよ。"
+    },
+    {
+      "learning_item_id": 19,
+      "question_number": 16,
+      "assessment_axis": "知識・技能",
+      "learning_item_name": "0°≦θ≦180°において，三角比の値からθを求めることができる。また，1つの三角比の値から残りの値を求めることができる。",
+      "example_question": "$0^\\circ\\leqq\\theta\\leqq180^\\circ$とする。\n$\\sin\\theta$、$\\cos\\theta$、$\\tan\\theta$のうち\n1つが次の値をとるとき、他の2つの値を求めよ。\n\\begin{enumerate}\n  \\item $\\sin\\theta=\\dfrac{2}{3}$\n  \\item $\\cos\\theta=\\dfrac{1}{4}$\n\\end{enumerate}"
+    },
+    {
+      "learning_item_id": 20,
+      "question_number": 17,
+      "assessment_axis": "知識・技能",
+      "learning_item_name": "0°≦θ≦180°において，三角比の値からθを求めることができる。また，1つの三角比の値から残りの値を求めることができる。",
+      "example_question": "$0^\\circ\\leqq\\theta\\leqq180^\\circ$とする。\n$\\tan\\theta$が次の値をとるとき、\n$\\sin\\theta$と$\\cos\\theta$の値を求めよ。\n\\begin{enumerate}\n  \\item $\\tan\\theta=-\\sqrt{2}$\n  \\item $\\tan\\theta=\\dfrac{1}{3}$\n\\end{enumerate}"
+    },
+    {
+      "learning_item_id": 21,
+      "question_number": 18,
+      "assessment_axis": "思考力・判断力・表現力",
+      "learning_item_name": "直線とx軸とのなす角を，三角比を用いて考察することができる。",
+      "example_question": "次の直線と$x$軸の正の向きとのなす角を求めよ。\n\\begin{enumerate}\n  \\item $y=x$\n  \\item $y=-\\sqrt{3}x$\n\\end{enumerate}"
+    },
+    {
+      "learning_item_id": 22,
+      "question_number": 19,
+      "assessment_axis": "知識・技能",
+      "learning_item_name": "正弦定理におけるA＝B＝C＝Dの形の関係式を適切に処理できる。",
+      "example_question": "$\\triangle ABC$において、次のものを求めよ。\n\\begin{enumerate}\n  \\item $a=6,\\ B=30^\\circ,\\ C=75^\\circ$のとき$b$\n  \\item $c=4,\\ A=30^\\circ,\\ B=45^\\circ$のとき$a$\n\\end{enumerate}"
+    },
+    {
+      "learning_item_id": 23,
+      "question_number": 19,
+      "assessment_axis": "知識・技能",
+      "learning_item_name": "正弦定理を用いて，三角形の辺の長さや外接円の半径が求められる。",
+      "example_question": "$\\triangle ABC$において、次のものを求めよ。\n\\begin{enumerate}\n  \\item $a=6,\\ B=30^\\circ,\\ C=75^\\circ$のとき$b$\n  \\item $c=4,\\ A=30^\\circ,\\ B=45^\\circ$のとき$a$\n\\end{enumerate}"
+    },
+    {
+      "learning_item_id": 24,
+      "question_number": 20,
+      "assessment_axis": "知識・技能",
+      "learning_item_name": "正弦定理におけるA＝B＝C＝Dの形の関係式を適切に処理できる。",
+      "example_question": "$\\triangle ABC$において、外接円の半径を$R$とする。\n次のものを求めよ。\n\\begin{enumerate}\n  \\item $b=8,\\ B=60^\\circ$のとき$R$\n  \\item $a=R$のとき$A$\n\\end{enumerate}"
+    },
+    {
+      "learning_item_id": 25,
+      "question_number": 20,
+      "assessment_axis": "知識・技能",
+      "learning_item_name": "正弦定理を用いて，三角形の辺の長さや外接円の半径が求められる。",
+      "example_question": "$\\triangle ABC$において、外接円の半径を$R$とする。\n次のものを求めよ。\n\\begin{enumerate}\n  \\item $b=8,\\ B=60^\\circ$のとき$R$\n  \\item $a=R$のとき$A$\n\\end{enumerate}"
+    },
+    {
+      "learning_item_id": 26,
+      "question_number": 21,
+      "assessment_axis": "知識・技能",
+      "learning_item_name": "余弦定理を用いて，三角形の辺の長さや角の大きさが求められる。",
+      "example_question": "$\\triangle ABC$において、次のものを求めよ。\n\\begin{enumerate}\n  \\item $a=3,\\ c=2\\sqrt{2},\\ B=45^\\circ$のとき$b$\n  \\item $a=8,\\ b=7,\\ C=120^\\circ$のとき$c$\n\\end{enumerate}"
+    },
+    {
+      "learning_item_id": 27,
+      "question_number": 22,
+      "assessment_axis": "知識・技能",
+      "learning_item_name": "余弦定理を用いて，三角形の辺の長さや角の大きさが求められる。",
+      "example_question": "$\\triangle ABC$において、\n$a=\\sqrt{5},\\ b=\\sqrt{2},\\ A=45^\\circ$のとき、\n$c$を求めよ。"
+    },
+    {
+      "learning_item_id": 28,
+      "question_number": 23,
+      "assessment_axis": "知識・技能",
+      "learning_item_name": "余弦定理を用いて，三角形の辺の長さや角の大きさが求められる。",
+      "example_question": "$\\triangle ABC$において、\n$a=2,\\ b=7,\\ c=3\\sqrt{3}$のとき、\n$B$を求めよ。"
+    },
+    {
+      "learning_item_id": 29,
+      "question_number": 25,
+      "assessment_axis": "思考力・判断力・表現力",
+      "learning_item_name": "余弦定理を三角形の形状決定と関連させて考察することができる。",
+      "example_question": "$\\triangle ABC$において、3辺の長さが次のようなとき、\n$\\triangle ABC$は鋭角三角形、直角三角形、鈍角三角形の\nいずれであるか。\n\\begin{enumerate}\n  \\item $a=4,\\ b=3,\\ c=2$\n  \\item $a=5,\\ b=6,\\ c=7$\n\\end{enumerate}"
+    },
+    {
+      "learning_item_id": 30,
+      "question_number": 26,
+      "assessment_axis": "知識・技能",
+      "learning_item_name": "余弦定理や正弦定理を用いて，三角形の残りの辺の長さや角の大きさを求めることができる。",
+      "example_question": "$\\triangle ABC$において、\n$b=2,\\ c=\\sqrt{6}+\\sqrt{2},\\ A=45^\\circ$のとき、\n$a,\\ B,\\ C$を求めよ。"
+    },
+    {
+      "learning_item_id": 31,
+      "question_number": 27,
+      "assessment_axis": "知識・技能",
+      "learning_item_name": "余弦定理や正弦定理を用いて，三角形の残りの辺の長さや角の大きさを求めることができる。",
+      "example_question": "$\\triangle ABC$において、\n$b=2,\\ c=\\sqrt{2},\\ C=30^\\circ$のとき、\n$a,\\ A,\\ B$を求めよ。"
+    },
+    {
+      "learning_item_id": 32,
+      "question_number": 28,
+      "assessment_axis": "思考力・判断力・表現力",
+      "learning_item_name": "正弦定理をa：b：c＝sinA：sinB：sinCとして捉え，三角形の角の大きさについて考察することができる。",
+      "example_question": "$\\triangle ABC$において、次の等式が成り立つとき、\nこの三角形の最も小さい角の余弦の値を求めよ。\n\\[\n\\frac{\\sin A}{8}=\\frac{\\sin B}{7}=\\frac{\\sin C}{3}\n\\]"
+    },
+    {
+      "learning_item_id": 33,
+      "question_number": 29,
+      "assessment_axis": "知識・技能",
+      "learning_item_name": "三角比を用いた三角形の面積を求める公式を理解している。",
+      "example_question": "次のような$\\triangle ABC$の面積$S$を求めよ。\n\\begin{enumerate}\n  \\item $a=3,\\ c=8,\\ B=60^\\circ$\n  \\item $a=\\sqrt{6},\\ b=2\\sqrt{2},\\ C=150^\\circ$\n\\end{enumerate}"
+    },
+    {
+      "learning_item_id": 34,
+      "question_number": 30,
+      "assessment_axis": "知識・技能",
+      "learning_item_name": "3辺が与えられた三角形の面積を求めることができる。",
+      "example_question": "$\\triangle ABC$において、\n$a=4,\\ b=3,\\ c=2$のとき、\nこの三角形の面積$S$を求めよ。"
+    },
+    {
+      "learning_item_id": 35,
+      "question_number": 31,
+      "assessment_axis": "思考力・判断力・表現力",
+      "learning_item_name": "三角形の面積を2つの三角形の面積の和として表現し，線分を求める問題に活用することができる。",
+      "example_question": "$\\triangle ABC$において、\n$\\mathrm{AB}=5,\\ \\mathrm{AC}=3,\\ A=120^\\circ$とし、\n$\\angle A$の二等分線と辺$\\mathrm{BC}$の交点を$D$とする。\n線分$\\mathrm{AD}$の長さを求めよ。"
+    },
+    {
+      "learning_item_id": 36,
+      "question_number": 32,
+      "assessment_axis": "思考力・判断力・表現力",
+      "learning_item_name": "円に内接する四角形の面積を求める方法を考察することができる。",
+      "example_question": "円に内接する四角形$\\mathrm{ABCD}$において、\n$\\mathrm{AB}=5,\\ \\mathrm{BC}=8,\\ \\mathrm{CD}=3,\\ \\angle B=60^\\circ$\nとするとき、四角形$\\mathrm{ABCD}$の面積$S$を求めよ。"
+    },
+    {
+      "learning_item_id": 37,
+      "question_number": 33,
+      "assessment_axis": "知識・技能",
+      "learning_item_name": "3辺が与えられた三角形の内接円の半径を求めることができる。",
+      "example_question": "$a=7,\\ b=5,\\ c=4$である$\\triangle ABC$の\n内接円の半径$r$を求めよ。"
+    },
+    {
+      "learning_item_id": 38,
+      "question_number": 34,
+      "assessment_axis": "思考力・判断力・表現力",
+      "learning_item_name": "空間図形への応用において，適当な三角形に着目して考察することができる。",
+      "example_question": "右の図のような、\n$\\mathrm{AB}=6,\\ \\mathrm{AD}=4,\\ \\mathrm{AE}=3$\nである直方体$\\mathrm{ABCD-EFGH}$がある。\n$\\triangle DEG$の面積$S$を求めよ。"
+    },
+    {
+      "learning_item_id": 39,
+      "question_number": 35,
+      "assessment_axis": "思考力・判断力・表現力",
+      "learning_item_name": "空間図形への応用において，適当な三角形に着目して考察することができる。",
+      "example_question": "1辺の長さが$a$の正四面体$\\mathrm{ABCD}$において、\n辺$\\mathrm{CD}$の中点を$M$とする。\nこのとき、次のものを求めよ。\n\\begin{enumerate}\n  \\item $\\cos\\angle ABM$の値\n  \\item $\\triangle ABM$の面積\n\\end{enumerate}"
+    },
+    {
+      "learning_item_id": 40,
+      "question_number": 36,
+      "assessment_axis": "知識・技能",
+      "learning_item_name": "三角比を利用して，正四面体などの体積を求めることができる。",
+      "example_question": "$\\mathrm{PA}=\\mathrm{PB}=\\mathrm{PC}=4$、\n$\\mathrm{AB}=6,\\ \\mathrm{BC}=4,\\ \\mathrm{CA}=5$\nである三角錐$\\mathrm{PABC}$の体積$V$を求めよ。"
+    },
+    {
+      "learning_item_id": 41,
+      "question_number": 37,
+      "assessment_axis": "知識・技能",
+      "learning_item_name": "三角比を測量に応用できる。",
+      "example_question": "テレビ塔が立っている地点$H$と同じ標高の地点$A$から、\nテレビ塔の先端$P$を見たところ、仰角が$60^\\circ$であった。\nまた、$A$から$40\\,\\mathrm{m}$離れた地点$B$では、\n$\\angle HAB=15^\\circ,\\ \\angle HBA=135^\\circ$であった。\nテレビ塔の高さ$\\mathrm{PH}$を求めよ。"
+    },
+    {
+      "learning_item_id": 42,
+      "question_number": 37,
+      "assessment_axis": "思考力・判断力・表現力",
+      "learning_item_name": "空間図形への応用において，適当な三角形に着目して考察することができる。",
+      "example_question": "テレビ塔が立っている地点$H$と同じ標高の地点$A$から、\nテレビ塔の先端$P$を見たところ、仰角が$60^\\circ$であった。\nまた、$A$から$40\\,\\mathrm{m}$離れた地点$B$では、\n$\\angle HAB=15^\\circ,\\ \\angle HBA=135^\\circ$であった。\nテレビ塔の高さ$\\mathrm{PH}$を求めよ。"
+    }
+  ],
+  "edges": [
+    {"source": 1, "target": 5},
+    {"source": 1, "target": 7},
+    {"source": 1, "target": 9},
+    {"source": 1, "target": 11},
+    {"source": 1, "target": 12},
+    {"source": 1, "target": 13},
+    {"source": 1, "target": 14},
+    {"source": 2, "target": 5},
+    {"source": 2, "target": 7},
+    {"source": 2, "target": 9},
+    {"source": 2, "target": 11},
+    {"source": 2, "target": 12},
+    {"source": 2, "target": 13},
+    {"source": 2, "target": 14},
+    {"source": 3, "target": 5},
+    {"source": 3, "target": 7},
+    {"source": 3, "target": 9},
+    {"source": 4, "target": 5},
+    {"source": 4, "target": 7},
+    {"source": 4, "target": 9},
+    {"source": 5, "target": 37},
+    {"source": 6, "target": 37},
+    {"source": 7, "target": 37},
+    {"source": 8, "target": 37},
+    {"source": 9, "target": 37},
+    {"source": 10, "target": 37},
+    {"source": 11, "target": 34},
+    {"source": 11, "target": 38},
+    {"source": 11, "target": 39},
+    {"source": 12, "target": 34},
+    {"source": 12, "target": 38},
+    {"source": 12, "target": 39},
+    {"source": 15, "target": 16},
+    {"source": 15, "target": 17},
+    {"source": 15, "target": 18},
+    {"source": 15, "target": 19},
+    {"source": 15, "target": 20},
+    {"source": 15, "target": 21},
+    {"source": 15, "target": 22},
+    {"source": 15, "target": 23},
+    {"source": 15, "target": 24},
+    {"source": 15, "target": 25},
+    {"source": 15, "target": 26},
+    {"source": 15, "target": 27},
+    {"source": 15, "target": 28},
+    {"source": 22, "target": 30},
+    {"source": 22, "target": 31},
+    {"source": 22, "target": 32},
+    {"source": 22, "target": 40},
+    {"source": 22, "target": 41},
+    {"source": 23, "target": 30},
+    {"source": 23, "target": 31},
+    {"source": 23, "target": 32},
+    {"source": 23, "target": 40},
+    {"source": 23, "target": 41},
+    {"source": 24, "target": 30},
+    {"source": 24, "target": 31},
+    {"source": 24, "target": 32},
+    {"source": 24, "target": 40},
+    {"source": 24, "target": 41},
+    {"source": 25, "target": 30},
+    {"source": 25, "target": 31},
+    {"source": 25, "target": 32},
+    {"source": 25, "target": 40},
+    {"source": 25, "target": 41},
+    {"source": 26, "target": 30},
+    {"source": 26, "target": 31},
+    {"source": 26, "target": 32},
+    {"source": 26, "target": 34},
+    {"source": 26, "target": 36},
+    {"source": 26, "target": 37},
+    {"source": 26, "target": 38},
+    {"source": 26, "target": 39},
+    {"source": 27, "target": 30},
+    {"source": 27, "target": 31},
+    {"source": 27, "target": 32},
+    {"source": 27, "target": 34},
+    {"source": 27, "target": 36},
+    {"source": 27, "target": 37},
+    {"source": 27, "target": 38},
+    {"source": 27, "target": 39},
+    {"source": 28, "target": 30},
+    {"source": 28, "target": 31},
+    {"source": 28, "target": 32},
+    {"source": 28, "target": 34},
+    {"source": 28, "target": 36},
+    {"source": 28, "target": 37},
+    {"source": 28, "target": 38},
+    {"source": 28, "target": 39},
+    {"source": 33, "target": 34},
+    {"source": 33, "target": 35}
+  ]
+}
